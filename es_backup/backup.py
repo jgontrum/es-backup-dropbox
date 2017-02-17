@@ -100,11 +100,11 @@ def run():
     scroll_id = data["_scroll_id"]
     number = len(data["hits"]["hits"])
     print("Pass %i: Got %i results" % (count, number))
-    finished = number < 1
-    if not finished:
+    if number > 0:
         json.dump(data["hits"]["hits"],
                   open("%s/data/%i.json" % (index, count), "w"))
 
+    finished = number < args.chunksize
     while not finished:
         count += 1
         query = {
