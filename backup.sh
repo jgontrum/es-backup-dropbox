@@ -10,7 +10,11 @@ done < /app/config/backup_index
 
 for i in *
 do
-  echo /root/dropbox_uploader.sh upload /root/$i
+  echo "Uploading $i..."
+  /root/dropbox_uploader.sh upload /tmp/backup/$i $i
 done
 
 rm -r /tmp/backup
+
+echo "Finished."
+
