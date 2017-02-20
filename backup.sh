@@ -11,7 +11,7 @@ done < /app/config/backup_index
 for i in *
 do
   echo "Uploading $i..."
-  /root/dropbox_uploader.sh upload /tmp/backup/$i $i
+  /root/dropbox_uploader.sh upload /tmp/backup/$i elasticsearch/$i
 done
 
 rm -r /tmp/backup
